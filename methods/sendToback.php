@@ -22,7 +22,7 @@
 	);                                                                                                                   
  
 	$result = curl_exec($ch);
-	echo $result;
+	echo json_encode($result);
 	/*$json = json_encode($array);
 	
 	$ch = curl_init('https://neuraapp.com/leads');
