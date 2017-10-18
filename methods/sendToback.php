@@ -4,7 +4,9 @@
 	
 	$array = array("nome" => .$nome., "telefone" => .$contato);
 	
-	$json = json_encode($array);
+	echo $array;
+	
+	/*$json = json_encode($array);
 	
 	$ch = curl_init('https://neuraapp.com/leads');
 	
@@ -18,7 +20,7 @@
 
     'Content-Type: application/json',
 
-    'Content-Length: ' . strlen($json))
+    'Content-Length: ' . strlen($json))*/
 
 );
 
