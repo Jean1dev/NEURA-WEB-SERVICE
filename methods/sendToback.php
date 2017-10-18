@@ -4,9 +4,10 @@
 	
 	//$array = array("nome" => .$nome., "telefone" => .$contato);
 	
+	//$data = "{nome :".$nome.", telefone :".$contato."}";
 	$data = array(
-					'nome' 		=> '.$nome',
-					'telefone' 	=> '.telefone',
+					nome 		=> $nome,
+					telefone 	=> $contato,
 				);
 	
 	$data_string = json_encode($data);                                                                                   
