@@ -1,5 +1,33 @@
+
 <?php
  
+ $nome     = 	$_GET["nome"];
+ $telefone = 	$_GET["telefone"];
+ 
+//API Url
+
+ 
+//The JSON data.
+$data = array(
+					nome 		=> $nome,
+					telefone 	=> $telefone,
+				);
+	
+	$data_string = json_encode($data);                                                                                   
+ 
+	$ch = curl_init('http://neuraapp.com/leads');
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+		'Content-Type: application/json',
+		'Content-Length: ' . strlen($data_string))
+	);                                                                                                                   
+ 
+	$result = curl_exec($ch);
+	echo json_encode($result);
+
+ /*
  $nome     = 	$_GET['nome'];
  $telefone = 	$_GET['telefone'];
  
@@ -15,6 +43,7 @@ $jsonData = array(
     'telefone' => 	$telefone
 );
  
+ 
 //Encode the array into JSON.
 $jsonDataEncoded = json_encode($jsonData);
  
@@ -28,5 +57,5 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json')); 
  
 //Execute the request
-$result = curl_exec($ch);
+$result = curl_exec($ch);*/
 ?>
