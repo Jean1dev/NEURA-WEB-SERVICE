@@ -21,8 +21,8 @@
 		'Content-Length: ' . strlen($data_string))
 	);                                                                                                                   
  
-$result = curl_exec($ch);
-	
+	$result = curl_exec($ch);
+	echo $result;
 	/*$json = json_encode($array);
 	
 	$ch = curl_init('https://neuraapp.com/leads');
