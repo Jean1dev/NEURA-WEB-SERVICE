@@ -12,7 +12,7 @@
 	$exec_row = $conn->query($sql_verifica);
 	
 	if($exec_row->num_rows == 0){
-		$sql_insert = 'INSERT INTO Diaristas (nome, contato, contato2, idade, dataCadastro) ';
+		$sql_insert = 'INSERT INTO Diaristas (nome, contato1, contato2, idade, dataCadastro) ';
 		$sql_insert .= ' VALUES (?, ?, ?, ?, ?)';
 
 		
