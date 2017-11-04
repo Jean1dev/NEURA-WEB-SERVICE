@@ -5,7 +5,7 @@
  $telefone 		= 	$_GET["telefone"];
  $emailenviar 	= 	"jeanlucafp@gmail.com";
  $destino 		= 	$emailenviar;
- $assunto 		= 	"Enviados vias mobile";
+ $assunto 		= 	"Enviados via mobile";
  
 
 
@@ -70,7 +70,7 @@
 	  $headers  = 'MIME-Version: 1.0' . "\r\n";
       $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
       $headers .= 'From: $nome <$email>';
-  //$headers .= "Bcc: $EmailPadrao\r\n";	
+	  $headers .= "Bcc: $EmailPadrao\r\n";	
   
 	  $enviaremail = mail($destino, $assunto, $arquivo, $headers);
 	  
