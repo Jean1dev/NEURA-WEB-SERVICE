@@ -21,6 +21,7 @@
 		
 		if ($stm->execute()){
 			$retorno = array("retorno" => "YES");
+			$stm->close();
 		} else {
 			$retorno = array("retorno" => "NO");
 		}
@@ -30,7 +31,6 @@
 	}
 	
 	echo json_encode($retorno);
-	$stm->close();
 	$conn->close();
 
 ?>
