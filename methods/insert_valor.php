@@ -1,6 +1,6 @@
 <?php 
 
-	include "db.php"
+	include "db.php";
 	
 	$mValor = $_POST["valor"];
 	$pValor = 0;
