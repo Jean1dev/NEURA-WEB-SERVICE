@@ -9,8 +9,9 @@
 	
 	$retorno = $exec_row->fetch_row();
 	$retorno_row = $retorno[1];
+	$return = array('RETORNO' => $retorno_row);
 	
-	echo json_encode($retorno_row);
+	echo json_encode($return);
 	
 	$conn->close();
 ?>
