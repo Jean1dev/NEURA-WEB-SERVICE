@@ -14,7 +14,12 @@
 		$retorno = array("retorno" => 'YES');
 		$msg = "teste de envio de email";
 		$msg = wordwrap($msg, 70);
-		mail("jeanlucafp@gmail.com", "teste", $msg);
+		$err = mail("jeanlucafp@gmail.com", "teste", $msg);
+
+		if($err){
+			echo "erro ao envial email";
+		}
+		
 	}else{
 		$retorno = array("retorno" => 'NO');
 	}
