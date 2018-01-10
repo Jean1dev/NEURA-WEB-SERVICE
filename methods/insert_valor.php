@@ -18,14 +18,16 @@
 
 		if($err){
 			echo "erro ao envial email";
+		}else{
+			echo "success";
 		}
-		
+
 	}else{
 		$retorno = array("retorno" => 'NO');
 	}
 
 	$stm->close();
 	$conn->close();
-	echo json_encode($retorno);
+	//echo json_encode($retorno);
 
 ?>
