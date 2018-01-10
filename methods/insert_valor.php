@@ -4,6 +4,7 @@
 	
 	$mValor = $_POST["valor"];
 	$pValor = 0;
+	$data = date("Y-m-d H:i:s");
 	
 	$sql_insert = "INSERT INTO Valor(mValor, pValor) VALUES(?, ?)";
 	
@@ -12,15 +13,9 @@
 	
 	if($stm->execute()){
 		$retorno = array("retorno" => 'YES');
-		$msg = "teste de envio de email";
+		$msg = "Email enviado via smartphone android, valor do metodo post :".$mValor." - ".$data;
 		$msg = wordwrap($msg, 70);
-		$err = mail("jeanlucafp@gmail.com", "teste", $msg);
-
-		if($err){
-			echo "erro ao envial email";
-		}else{
-			echo "success";
-		}
+		$err = mail("jeanlucafp@gmail.com", "ENVIADO VIA GAEA ENERGY", $msg);
 
 	}else{
 		$retorno = array("retorno" => 'NO');
@@ -28,6 +23,6 @@
 
 	$stm->close();
 	$conn->close();
-	//echo json_encode($retorno);
+	echo json_encode($retorno);
 
 ?>
