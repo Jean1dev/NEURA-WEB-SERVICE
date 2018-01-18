@@ -12,7 +12,7 @@
 
 	$stm = $conn->query($table);
 	
-	$sql = 'SELECT idVersaoBD FROM VersaoBD ORDER BY idVersaoBD DESC LIMIT 1'
+	$sql = 'SELECT idVersaoBD FROM VersaoBD ORDER BY idVersaoBD DESC LIMIT 1';
 	$exec_row = $conn->query($sql);
 	$retorno = $exec_row->fetch_row();
 	$retorno_row = $retorno[1];
