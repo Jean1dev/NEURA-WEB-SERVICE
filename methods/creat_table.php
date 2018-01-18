@@ -15,17 +15,17 @@
 				PRIMARY KEY (primeira_coluna)
 				)";
 						
-	$results = mysql_query($create) or die (mysql_error());
-	//$stm = $scon->prepare($create_table);
+	//$results = mysql_query($create) or die (mysql_error());
+	$stm = $scon->prepare($create);
 	
-	if($results > 0){
+	if($stm->execute()){
 		echo "SUCCES";
 	}else{
 		echo "ERR";
 	}
 	
 	mysql_close();
-	//$stm->close();
-	//$con->close();
+	$stm->close();
+	$con->close();
 		
 ?>
