@@ -16,7 +16,7 @@
 				)";
 						
 	//$results = mysql_query($create) or die (mysql_error());
-	$stm = $scon->prepare($create);
+	$stm = $scon->query($create);
 	
 	if($stm->execute()){
 		echo "SUCCES";
