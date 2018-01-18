@@ -1,7 +1,7 @@
 <?php 
 
 	include "db.php";
-	mysql_select_db('neura_bd_teste');
+	//mysql_select_db('neura_bd_teste');
 
 	$create_table = "CREATE TABLE IF NOT EXISTS `turnos` (
 							`Id_Turnos` int(11) NOT NULL,
@@ -24,7 +24,8 @@
 		echo "ERR";
 	}
 	
-	$stm->close();
-	$con->close();
+	mysql_close();
+	//$stm->close();
+	//$con->close();
 		
 ?>
