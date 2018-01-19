@@ -33,14 +33,15 @@
 		}
 
 		//////////////////////////////////////////////////////////////////////
-
+		$sql_create = This.createTable();
+		$stm = $conn->query($sql_create);
 	}
 	echo "banco atualizado";
 	//$stm->close();
 	$conn->close();
 	
 	function getVersion(){
-		$version = 2;
+		$version = 3;
 		return $version;
 	}
 
@@ -67,8 +68,9 @@
 		}
 	}
 	
-	function createTable($string_table){
-	    $conn->query($string_table);
+	function createTable(){
+	    $table = This.versaoBD();
+	    return $table;
 	}
 
 ?>
