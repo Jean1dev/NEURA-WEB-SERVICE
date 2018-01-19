@@ -18,10 +18,25 @@
 	$retorno_row = $retorno[1];
 	
 	if($retorno[1] < This.getVersion()){
-		This.versaoBD()
-	}
+	    echo $retorno[1];
+		//This.versaoBD();
+		//This.insertVersionBD();
+		$data = date("Y-m-d H:i:s");
+		$sql_insert = 'INSERT INTO VersaoBD(date) VALUES(?)';
+		$stm = $conn->prepare($sql_insert);
+		$stm->bind_param("s", $data);
 
-	$stm->close();
+		if($stm->execute()){
+			$stm->close();
+		}else{
+			echo 'Problema ao atualizar versão do banco';
+		}
+
+		//////////////////////////////////////////////////////////////////////
+
+	}
+	echo "banco atualizado";
+	//$stm->close();
 	$conn->close();
 	
 	function getVersion(){
@@ -30,14 +45,13 @@
 	}
 
 	function versaoBD(){
-		$versao_1 = "CREATE TABLE minhatabela (
+		$versao = "CREATE TABLE IF NOT EXISTS minhatabela (
 					primeira_coluna int NOT NULL auto_increment,
 					segunda_coluna varchar (20) NOT NULL,
 					terceira_coluna int NOT NULL,
 					PRIMARY KEY (primeira_coluna)
 					)";
-		$stm = $conn->query($versao_1);
-
+        return $versao;
 	}
 
 	function insertVersionBD(){
@@ -51,6 +65,10 @@
 		}else{
 			echo 'Problema ao atualizar versão do banco';
 		}
+	}
+	
+	function createTable($string_table){
+	    $conn->query($string_table);
 	}
 
 ?>
