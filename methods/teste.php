@@ -1,3 +1,6 @@
 <?php
-	echo "ola mundo"
+	
+	$teste = $_POST['teste'];
+
+	echo json_encode($teste);
 ?>
